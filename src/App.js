@@ -5,7 +5,6 @@ import CardList from './components/Cardlist';
 // eslint-disable-next-line
 //import Api from './components/Api';
 import Card from './components/Card';
-import ErrorHandling from './components/Errors'
 
 class App extends React.Component {
   /* constructor(props){

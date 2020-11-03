@@ -1,5 +1,4 @@
 import React from 'react';
-import Alert from '@material-ui/lab/Alert';
 
 //passs state from Form to here;
 
@@ -14,10 +13,10 @@ class ErrorHandling extends React.Component {
   render() {
     if(this.props.data !== ''){
       return (
-      <Alert severity="error">USERNAME NOT FOUND </Alert>
+      <h5 style={{color: 'red'}} >USERNAME NOT FOUND </h5>
       )
     }else {
-      return( <Alert style={{display: "none" }} severity="success">User found</Alert>)
+      return( <h5 style={{display: "none" }}> User found</h5>)
     }
   }  
 }

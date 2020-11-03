@@ -2,7 +2,7 @@ import React from 'react';
 //import Axios from 'axios';
 import Api from './Api';
 import ErrorHandling from './Errors';
-import { Input, Button, Alert} from '@material-ui/core';
+import { Input, Button} from '@material-ui/core';
 
    //handles form eventsx
 class Form extends React.Component{
@@ -11,9 +11,9 @@ class Form extends React.Component{
           hasError: ''
      }
      handleSubmit = async (event) => {
+     this.setState({ hasError: ''})
      event.preventDefault(); //Stop page from refreshing on submit. Avoid losing state
      try{
-          this.setState({ hasError: ''})
           const api = new Api(); 
           const data = await api.retrieveUser(this.state.userName)
           this.props.onSubmit(data);
@@ -28,7 +28,6 @@ class Form extends React.Component{
      };
 
 render(){
-     var err = this.state.hasError;
      return(
      <form onSubmit={this.handleSubmit} >
      <ErrorHandling data={this.state.hasError}/>
