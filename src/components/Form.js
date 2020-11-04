@@ -2,7 +2,7 @@ import React from 'react';
 //import Axios from 'axios';
 import Api from './Api';
 import ErrorHandling from './Errors';
-import { Input, Button} from '@material-ui/core';
+import { Input, Button, Container} from '@material-ui/core';
 
    //handles form eventsx
 class Form extends React.Component{
@@ -16,7 +16,7 @@ class Form extends React.Component{
      try{
           const api = new Api(); 
           const data = await api.retrieveUser(this.state.userName)
-          this.props.onSubmit(data);
+          await this.props.onSubmit(data);
 
      }catch(e){
           console.log("Github API error", e);
@@ -29,20 +29,22 @@ class Form extends React.Component{
 
 render(){
      return(
-     <form onSubmit={this.handleSubmit} >
-     <ErrorHandling data={this.state.hasError}/>
-     <Input 
-          type='text' 
-          placeholder='Enter GitHub name' 
-          value={this.state.userName} 
-          onChange={event => this.setState({userName: event.target.value})}
-          required
-          autoFocus='true'
-          error={this.err === '' ? 'false' : 'true'}
-          />
-     
-     <Button color='inherit' style={{backgroundColor: "grey", margin: '5px'}}>Add Card</Button>
-     </form>
+      <div align='center' style={{marginTop: '10%'}}>
+          <ErrorHandling data={this.state.hasError}/>
+          <form onSubmit={this.handleSubmit} >
+               <Input 
+                    type='text' 
+                    placeholder='Enter GitHub name' 
+                    autoFocus='true'
+                    value={this.state.userName} 
+                    onChange={event => this.setState({userName: event.target.value})}
+                    required
+                    error={this.err === '' ? 'false' : 'true'}
+                    />
+               
+               <Button color='inherit' style={{backgroundColor: "grey", margin: '5px'}}>Add Card</Button>
+          </form>
+     </div>
      )
 }
 }

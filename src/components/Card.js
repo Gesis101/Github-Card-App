@@ -1,18 +1,47 @@
-import React from 'react';
+import React from "react";
+import { Card, CardContent, CardMedia} from "@material-ui/core";
+import Alert from '@material-ui/lab/Alert';
 
-class Card extends React.Component{
-     render(){
-       const profile = this.props;
-       return(
-         <div className="github-profile">
-              <img src={profile.avatar_url} alt="" style={{'width':'75px'}}/>
-           <div className="info"  style={{ marginLeft: "10px"}}>
-             <div className="name" style={{ fontWeight : '600'}}>{profile.name}</div>
-             <div className="company">{profile.company}</div>
-           </div>
-            </div>    
-         );
-     }
+
+class Cards extends React.Component {
+  state = {
+    'userSearched': false
+  }
+  set1 = () => {
+    this.setState({'userSearched': true});
+  };
+
+  render() {
+    const profile = this.props;
+    
+    if(profile.name){
+    return (
+      <Card align='center'  style={{marginTop:"10%", width: '50%'}}>
+        <div className="github-profile">
+         <img src={`${profile.avatar_url}`} alt='' style={{ width: "100%" }} />
+         <CardContent align='left'>
+          <div className="info" style={{ marginLeft: "10px" }}>
+            <div className="name" style={{ fontWeight: "600" }}>
+              Name: {profile.name} 
+    
+            </div>
+            <div className="name" style={{ fontWeight: "600" }}> 
+              Username: {profile.login}
+            </div>
+            <div className="name" style={{ fontWeight: "600" }}>
+              followers: {profile.followers}
+            </div>
+            <div className="company">{profile.company}</div>
+          </div>
+          </CardContent>
+        </div>
+      </Card>
+    );
+    }else{
+      return(<div></div>
+  )
+    }
+  }
 }
 
-export default Card;
+export default Cards;
