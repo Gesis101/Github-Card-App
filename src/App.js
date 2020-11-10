@@ -1,9 +1,6 @@
 import React from "react";
 import { Form } from "./components/Form";
 import CardList from "./components/Cardlist";
-// eslint-disable-next-line
-//import Api from './components/Api';
-import Cards from "./components/Card";
 import {Container, Typography} from "@material-ui/core";
 class App extends React.Component {
   /* constructor(props){
@@ -24,23 +21,27 @@ class App extends React.Component {
 
   render() {
     return (
+      <div>
+      <Typography color="textPrimary" gutterBottom variant="h4" align='center' style={{"text-transform":"uppercase", boxShadow: "8px 8px 16px -7px #000000" }}>
+            <div>{this.props.title}</div>
+      </Typography>
       <Container 
-  spacing={0}
-  direction="column"
-  alignItems="center"
-  justify="center">
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justify="center">
         <div className="App">
-        <Typography color="textPrimary" gutterBottom variant="h4" align='center'style={{"text-transform":"uppercase"}}>
-          <div>{this.props.title}</div>
-        </Typography>
+          
           <Form
             onSubmit={this.addNewProfile}
             currentState={this.state.hasError}
           />
-          <CardList profiles={this.state.profiles} />
-          
+          <div className='cards'>
+            <CardList profiles={this.state.profiles} />
+          </div>
         </div>
       </Container>
+      </div>
     );
   }
 }

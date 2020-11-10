@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent, CardMedia} from "@material-ui/core";
+import { Card, CardContent} from "@material-ui/core";
 import Alert from '@material-ui/lab/Alert';
 
 
@@ -16,7 +16,7 @@ class Cards extends React.Component {
     
     if(profile.name){
     return (
-      <Card align='center'  style={{marginTop:"10%", width: '50%'}}>
+      <Card align='center'  style={{marginTop:"10%", width: '30%'}}>
         <div className="github-profile">
          <img src={`${profile.avatar_url}`} alt='' style={{ width: "100%" }} />
          <CardContent align='left'>
