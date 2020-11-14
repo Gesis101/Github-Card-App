@@ -16,8 +16,8 @@ class Cards extends React.Component {
     
     if(profile.name){
     return (
-      <Card align='center'  style={{marginTop:"10%", width: '30%'}}>
-        <div className="github-profile">
+      <div className="github-profile">
+      <Card align='center'  style={{ margin:"10%"}}>
          <img src={`${profile.avatar_url}`} alt='' style={{ width: "100%" }} />
          <CardContent align='left'>
           <div className="info" style={{ marginLeft: "10px" }}>
@@ -34,8 +34,8 @@ class Cards extends React.Component {
             <div className="company">{profile.company}</div>
           </div>
           </CardContent>
-        </div>
       </Card>
+      </div>
     );
     }else{
       return(<div></div>

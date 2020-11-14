@@ -3,3 +3,14 @@
      margin: 0 !important;
      padding: 0 !important;
  }
+
+ .card-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+ .github-profile{
+    width: 32.5%;
+    height: auto;
+ }
+
+

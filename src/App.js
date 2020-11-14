@@ -2,6 +2,7 @@ import React from "react";
 import { Form } from "./components/Form";
 import CardList from "./components/Cardlist";
 import {Container, Typography} from "@material-ui/core";
+import './App.css'
 class App extends React.Component {
   /* constructor(props){
     super(props);
@@ -36,9 +37,9 @@ class App extends React.Component {
             onSubmit={this.addNewProfile}
             currentState={this.state.hasError}
           />
-          <div className='cards'>
-            <CardList profiles={this.state.profiles} />
-          </div>
+    
+          <CardList profiles={this.state.profiles} />
+         
         </div>
       </Container>
       </div>
