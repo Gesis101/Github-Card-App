@@ -13,4 +13,9 @@
     height: auto;
  }
 
-
+ @media only screen and (max-width: 600px) {
+    .github-profile{
+        width: 100%;
+        height: auto;
+     }
+  }
